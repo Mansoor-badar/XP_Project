@@ -1,5 +1,5 @@
 # Maven build output
-/target/
+**/target/
 
 # Maven specific files
 **/maven-status/
