@@ -1,0 +1,18 @@
+# Maven build output
+/target/
+
+# Maven specific files
+**/maven-status/
+**/maven-archiver/
+**/*.jar
+
+# VS Code / Visual Studio
+.vscode/
+.vs/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
