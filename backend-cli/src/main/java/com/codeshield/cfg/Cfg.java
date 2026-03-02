@@ -2,7 +2,7 @@ package com.codeshield.cfg;
 import java.util.*;
 
 public class Cfg {
-    public record Node(int id, String label){
+    public record Node(int id, String label){ // id is 1-based index
     }
     public record Edge(int from, int to){
     }
