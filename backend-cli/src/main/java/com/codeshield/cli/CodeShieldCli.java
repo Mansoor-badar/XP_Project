@@ -1,7 +1,8 @@
 package com.codeshield.cli;
+
 import com.codeshield.core.Language;
 import com.codeshield.core.LanguageDetector;
-import com.codeshield.java.JavaComplexityAnalyser;
+import com.codeshield.services.JavaComplexityAnalyser;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -38,6 +39,8 @@ public class CodeShieldCli {
     private static String promptPath() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the path to the source code file: ");
-        return scanner.nextLine().trim();
+        String path = scanner.nextLine().trim();
+        scanner.close();
+        return path;
     }
 }
