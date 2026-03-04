@@ -1,11 +1,8 @@
-package com.codeshield.cfg;
+package com.codeshield.models;
+
 import java.util.*;
 
 public class Cfg {
-    public record Node(int id, String label){
-    }
-    public record Edge(int from, int to){
-    }
 
     private final Node entry;
     private final Node exit;
@@ -19,30 +16,32 @@ public class Cfg {
         nodes.add(exit);
     }
 
-    public Node entry(){
+    public Node entry() {
         return entry;
     }
-    public Node exit(){
+
+    public Node exit() {
         return exit;
     }
 
-    public Node newNode(String label){
+    public Node newNode(String label) {
         Node n = new Node(nodes.size() + 1, label);
         nodes.add(n);
         return n;
     }
 
-    public void addEdge(Node from, Node to){
+    public void addEdge(Node from, Node to) {
         if (from == null || to == null) {
             return;
         }
         edges.add(new Edge(from.id(), to.id()));
     }
 
-    public int N(){
+    public int N() {
         return nodes.size();
     }
-    public int E(){
+
+    public int E() {
         return edges.size();
     }
 
@@ -67,7 +66,7 @@ public class Cfg {
             Deque<Integer> dq = new ArrayDeque<>();
             dq.add(n.id());
             seen.add(n.id());
-            while (!dq.isEmpty()){
+            while (!dq.isEmpty()) {
                 int cur = dq.removeFirst();
                 for (int nb : adj.getOrDefault(cur, Set.of())) {
                     if (seen.add(nb)) {
@@ -79,7 +78,7 @@ public class Cfg {
         return components;
     }
 
-    public int cyclomaticComplexity(){
+    public int cyclomaticComplexity() {
         return E() - N() + 2 * P(); // M = E - N + 2P
     }
 }
