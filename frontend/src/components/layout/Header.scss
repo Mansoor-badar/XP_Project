@@ -1,0 +1,129 @@
+/* theme.scss — global design tokens + base primitives (no page/layout styles) */
+
+:root {
+    /* Typography */
+    --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+        "Apple Color Emoji", "Segoe UI Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+        "Courier New", monospace;
+
+    /* Backgrounds / surfaces (dark navy) */
+    --bg-0: #020617;
+    /* app background */
+    --bg-1: #0b1220;
+    /* subtle top gradient stop */
+    --surface-0: #0f172a;
+    /* panels/nav/topbar */
+    --surface-1: #111c31;
+    /* cards */
+    --surface-2: rgba(2, 6, 23, 0.45);
+    /* inset areas */
+
+    /* Borders */
+    --border-0: rgba(148, 163, 184, 0.14);
+    --border-1: rgba(148, 163, 184, 0.22);
+
+    /* Text */
+    --text-0: #f8fafc;
+    /* primary */
+    --text-1: rgba(248, 250, 252, 0.82);
+    /* secondary */
+    --text-2: #94a3b8;
+    /* muted */
+
+    /* Accent (teal) */
+    --accent-0: #14b8a6;
+    --accent-1: #2dd4bf;
+    --accent-glow: rgba(45, 212, 191, 0.18);
+
+    /* Status (optional) */
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+    /* Radius */
+    --r-10: 10px;
+    --r-12: 12px;
+    --r-14: 14px;
+    --r-16: 16px;
+
+    /* Shadows */
+    --shadow-soft: 0 12px 36px rgba(0, 0, 0, 0.35);
+    --shadow-glow: 0 0 0 1px rgba(45, 212, 191, 0.10) inset, 0 18px 42px rgba(0, 0, 0, 0.36);
+
+    /* Motion */
+    --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --t-fast: 120ms;
+    --t-med: 180ms;
+
+    /* Focus */
+    --focus-ring: 0 0 0 2px rgba(45, 212, 191, 0.35);
+}
+
+/* Base */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--text-0);
+    background:
+        radial-gradient(1200px 600px at 55% 15%, rgba(20, 184, 166, 0.10), transparent 55%),
+        radial-gradient(900px 500px at 20% 70%, rgba(56, 189, 248, 0.06), transparent 60%),
+        linear-gradient(180deg, var(--bg-1), var(--bg-0));
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+/* Primitives */
+@mixin focusRing {
+    &:focus-visible {
+        outline: none;
+        box-shadow: var(--focus-ring);
+    }
+}
+
+@mixin surface($bg: var(--surface-0)) {
+    background: $bg;
+    border: 1px solid var(--border-0);
+    border-radius: var(--r-16);
+    box-shadow: var(--shadow-soft);
+}
+
+@mixin cardHover {
+    transition: transform var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease),
+        background var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+
+    &:hover {
+        transform: translateY(-1px);
+        border-color: var(--border-1);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+/* Optional utility classes (keep minimal) */
+.u-muted {
+    color: var(--text-2);
+}
+
+.u-surface {
+    @include surface(var(--surface-0));
+}
+
+.u-card {
+    @include surface(var(--surface-1));
+}
