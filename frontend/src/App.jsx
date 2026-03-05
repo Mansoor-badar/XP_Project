@@ -1,7 +1,9 @@
+import Home from "./components/views/Home.jsx";
+
 function App() {
   return (
     <div>
-      <h1>Empty for now :D</h1>
+      <Home />
     </div>
   );
 }
