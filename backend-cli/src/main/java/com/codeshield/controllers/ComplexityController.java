@@ -1,5 +1,6 @@
 package com.codeshield.controllers;
 
+import com.codeshield.models.AnalyseRequest;
 import com.codeshield.models.FileResult;
 import com.codeshield.services.JavaComplexityAnalyser;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,9 @@ public class ComplexityController {
         this.analyser = analyser;
     }
 
-    @PostMapping("/java")
-    public FileResult analyzeCode(@RequestBody String sourceCode) {
+    @PostMapping("/analyse")
+    public FileResult analyse(@RequestBody AnalyseRequest request) {
         // the controller calls service layer
-        return analyser.analyseFile(sourceCode);
+        return analyser.analyseFile(request.sourceCode());
     }
 }
