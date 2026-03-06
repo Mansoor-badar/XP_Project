@@ -1,5 +1,9 @@
 package com.codeshield.models;
 
-public record AnalyseRequest(String fileName, String sourceCode) {
-    
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record AnalyseRequest(
+    @JsonProperty("fileName") String fileName,
+    @JsonProperty("sourceCode") String sourceCode
+) {
 }

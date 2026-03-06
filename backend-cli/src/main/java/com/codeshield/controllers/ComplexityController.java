@@ -17,8 +17,8 @@ public class ComplexityController {
         this.analyser = analyser;
     }
 
-    @PostMapping("/analyse")
-    public FileResult analyse(@RequestBody AnalyseRequest request) {
+    @PostMapping("/analyze")
+    public FileResult analyze(@RequestBody AnalyseRequest request) {
         // the controller calls service layer
         return analyser.analyseFile(request.sourceCode());
     }
