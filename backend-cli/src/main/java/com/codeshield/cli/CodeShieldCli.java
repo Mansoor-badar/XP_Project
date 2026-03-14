@@ -38,6 +38,8 @@ public class CodeShieldCli {
         System.out.println("Total red flags: " + result.getRedFlags());
         System.out.println("Total lines of code: " + result.getLoc());
         System.out.println("Vulnerability Density: " + result.getVulnerabilityDensity());
+        System.out.println("Technical Debt Index: " + result.getTdi());
+        System.out.println("Risk Classification: " + result.getRiskClassification());
     }
 
     private static String promptPath() {

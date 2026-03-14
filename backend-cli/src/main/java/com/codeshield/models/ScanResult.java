@@ -10,6 +10,8 @@ public class ScanResult {
     private int redFlags;
     private int loc;
     private List<MethodResult> methods;
+    private double tdi;
+    private String riskClassification;
 
     public int getTotalComplexity() {
          return totalComplexity; 
@@ -45,4 +47,20 @@ public class ScanResult {
     public void setMethods(List<MethodResult> methods) {
          this.methods = methods;
          }
+
+    public double getTdi() {
+        return tdi;
+    }
+
+    public void setTdi(double tdi) {
+        this.tdi = tdi;
+    }
+
+    public String getRiskClassification() {
+        return riskClassification;
+    }
+
+    public void setRiskClassification(String riskClassification) {
+        this.riskClassification = riskClassification;
+    }
 }
