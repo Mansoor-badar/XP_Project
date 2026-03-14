@@ -2,11 +2,12 @@ package com.codeshield.cli;
 
 import com.codeshield.core.Language;
 import com.codeshield.core.LanguageDetector;
-import com.codeshield.services.JavaComplexityAnalyser;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Scanner;
+import com.codeshield.services.ScanService;
+import com.codeshield.models.ScanResult;
 
 public class CodeShieldCli {
     public static void main(String[] args) throws Exception {
@@ -24,16 +25,19 @@ public class CodeShieldCli {
             return;
         }
 
-        var analyser = new JavaComplexityAnalyser();
-        var result = analyser.analyseFile(code);
+        ScanService scanService = new ScanService();
+        ScanResult result = scanService.scan(code);
 
         System.out.println("\n--- Per-method CFG results (M = E - N + 2P) ---");
-        for (var m : result.methods()) {
+        for (var m : result.getMethods()) {
             System.out.printf("Method: %s, N: %d, E: %d, P: %d, M: %d%n",
-                    m.name(), m.N(), m.E(), m.P(), m.M());
+            m.name(), m.N(), m.E(), m.P(), m.M());
         }
 
-        System.out.println("\nTotal complexity (sum of M): " + result.totalComplexity());
+        System.out.println("\nTotal complexity (sum of M): " + result.getTotalComplexity());
+        System.out.println("Total red flags: " + result.getRedFlags());
+        System.out.println("Total lines of code: " + result.getLoc());
+        System.out.println("Vulnerability Density: " + result.getVulnerabilityDensity());
     }
 
     private static String promptPath() {
