@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,181 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: #020c1b;
+  color: #e6edf7;
+}
+
+/* NAVBAR */
+
+.navbar {
+  height: 70px;
+  background: #071a33;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  border-bottom: 1px solid #0e2a4d;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.logout {
+  background: #0fae9d;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 500;
+}
+
+/* MAIN */
+
+.dashboard {
+  padding: 40px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.header p {
+  margin-top: 8px;
+  color: #8aa3c7;
+}
+
+/* CARDS */
+
+.cards {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.card {
+  flex: 1;
+  background: #071a33;
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid #0e2a4d;
+}
+
+.card h3 {
+  margin: 0;
+}
+
+.card p {
+  color: #8aa3c7;
+  margin-top: 5px;
+}
+
+/* DROPZONE */
+
+.dropzone {
+  margin-top: 20px;
+  height: 220px;
+  border-radius: 12px;
+  border: 2px dashed #183b66;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #8aa3c7;
+}
+
+.browse {
+  margin-top: 15px;
+  background: #0fae9d;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: white;
+}
+
+/* TEXTAREA */
+
+.pastebox {
+  width: 100%;
+  height: 240px;
+  margin-top: 20px;
+  background: #020c1b;
+  border: 1px solid #183b66;
+  border-radius: 12px;
+  padding: 15px;
+  color: white;
+  resize: none;
+}
+
+/* ACTIONS */
+
+.actions {
+  display: flex;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+.run {
+  flex: 1;
+  height: 50px;
+  border-radius: 25px;
+  border: none;
+  background: #0fae9d;
+  font-size: 16px;
+  color: white;
+}
+
+.clear {
+  width: 140px;
+  border-radius: 25px;
+  border: none;
+  background: #e3e6eb;
+  font-size: 16px;
+}
+
+/* RESULTS */
+
+.results {
+  margin-top: 35px;
+  background: #071a33;
+  border-radius: 14px;
+  border: 1px solid #0e2a4d;
+  padding: 20px;
+}
+
+.search {
+  margin-top: 15px;
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid #183b66;
+  background: #020c1b;
+  padding-left: 15px;
+  color: white;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  padding: 15px;
+  color: #8aa3c7;
+  border-bottom: 1px solid #0e2a4d;
+}
+
+.empty {
+  text-align: center;
+  padding: 70px;
+  color: #8aa3c7;
 }
