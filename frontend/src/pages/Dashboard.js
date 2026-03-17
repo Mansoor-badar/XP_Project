@@ -41,8 +41,13 @@ export default function Dashboard() {
   const [code, setCode] = useState("");
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [resetKey, setResetKey] = useState(0); //variable to hold a key that changes and forces a brand new comp instance
 
   const handleRunScan = async () => {
+    if (files.length === 0 && code.trim() === "") {
+      alert("Please upload a file or paste code before scanning.");
+      return;
+    }
     setLoading(true);
 
     const requestData = { //prep the request payload
@@ -78,6 +83,7 @@ export default function Dashboard() {
     setFiles([]);
     setCode("");
     setResults([]);
+    setResetKey(prev => prev + 1); //add a new key to reset component with each clear
   };
 
   return (
@@ -90,7 +96,7 @@ export default function Dashboard() {
       </div>
 
       <div className="cards">
-        <UploadCard setFiles={setFiles} />
+        <UploadCard key={resetKey} setFiles={setFiles} />
         <PasteCard code={code} setCode={setCode} />
       </div>
 
