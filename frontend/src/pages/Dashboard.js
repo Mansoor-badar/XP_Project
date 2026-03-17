@@ -42,6 +42,44 @@ export default function Dashboard() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const handleRunScan = async () => {
+    setLoading(true);
+
+    const requestData = { //prep the request payload
+      fileName: files.length > 0 ? files[0].name : "pastedCode.java",
+      sourceCode: files.length > 0 ? await files[0].text() : code,
+    };
+
+    try {
+      const response = await fetch("http://localhost:8080/api/analysis/analyze", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      if (!response.ok) {
+        const error = await response.text();
+        throw new Error(error);
+      }
+
+    const data = await response.json();
+    setResults([data]); //store the result
+  } catch (err) {
+    console.error(err);
+    alert("Error: " + err.message);
+  } finally {
+    setLoading(false);
+  }
+};
+
+  const handleClear = () => {
+    setFiles([]);
+    setCode("");
+    setResults([]);
+  };
+
   return (
     <div className="dashboard">
       <Navbar />
@@ -57,9 +95,14 @@ export default function Dashboard() {
       </div>
 
       <div className="actions">
-        <button className="run">Run Scan</button>
-        <button className="clear">Clear</button>
+        <button className="run" onClick={handleRunScan} disabled={loading}>
+          {loading ? "Scanning..." : "Run Scan"}
+        </button>
+        <button className="clear" onClick={handleClear}>
+          Clear
+        </button>
       </div>
+      
 
       <ResultsTable results={results} />
     </div>

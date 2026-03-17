@@ -54,11 +54,11 @@ export default function ResultsTable({ results }) {
           ) : (
             results.map((r, i) => (
               <tr key={i}>
-                <td>{r.module}</td>
+                <td>{r.fileName}</td>
                 <td>{r.tdi}</td>
-                <td>{r.complexity}</td>
-                <td>{r.vulnerability}</td>
-                <td>{r.risk}</td>
+                <td>{r.totalComplexity}</td>
+                <td>{r.redFlags}</td>
+                <td>{r.riskClassification}</td>
               </tr>
             ))
           )}

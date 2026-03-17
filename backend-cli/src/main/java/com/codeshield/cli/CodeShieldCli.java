@@ -31,7 +31,7 @@ public class CodeShieldCli {
         System.out.println("\n--- Per-method CFG results (M = E - N + 2P) ---");
         for (var m : result.getMethods()) {
             System.out.printf("Method: %s, N: %d, E: %d, P: %d, M: %d%n",
-            m.name(), m.N(), m.E(), m.P(), m.M());
+                    m.getName(), m.getN(), m.getE(), m.getP(), m.getM());
         }
 
         System.out.println("\nTotal complexity (sum of M): " + result.getTotalComplexity());

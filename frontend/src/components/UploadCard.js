@@ -23,7 +23,7 @@ export default function UploadCard({ setFiles }) {
       <h3>Upload File</h3>
       <p>Upload source code files</p>
 
-      <input type="file" multiple onChange={handleFileChange} />
+      <input type="file" onChange={handleFileChange} accept=".java" /> 
     </div>
   );
 }

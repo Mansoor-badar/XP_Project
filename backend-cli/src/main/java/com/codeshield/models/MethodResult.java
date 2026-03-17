@@ -15,23 +15,23 @@ public class MethodResult {
         this.M = M;
     }
 
-    public String name() {
+    public String getName() {
         return name;
     }
 
-    public int N() {
+    public int getN() {
         return N;
     }
 
-    public int E() {
+    public int getE() {
         return E;
     }
 
-    public int P() {
+    public int getP() {
         return P;
     }
 
-    public int M() {
+    public int getM() {
         return M;
     }
 }
