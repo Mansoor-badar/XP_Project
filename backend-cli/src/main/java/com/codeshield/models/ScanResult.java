@@ -12,41 +12,47 @@ public class ScanResult {
     private List<MethodResult> methods;
     private double tdi;
     private String riskClassification;
+    private String fileName;
 
     public int getTotalComplexity() {
-         return totalComplexity; 
-        }
+        return totalComplexity;
+    }
+
     public void setTotalComplexity(int totalComplexity) {
-         this.totalComplexity = totalComplexity; 
-        }
-
-    public double getVulnerabilityDensity() { 
-        return vulnerabilityDensity; 
-    }
-    public void setVulnerabilityDensity(double vulnerabilityDensity) { 
-        this.vulnerabilityDensity = vulnerabilityDensity; 
+        this.totalComplexity = totalComplexity;
     }
 
-    public int getRedFlags() { 
-        return redFlags; 
+    public double getVulnerabilityDensity() {
+        return vulnerabilityDensity;
     }
-    public void setRedFlags(int redFlags) { 
-        this.redFlags = redFlags; 
+
+    public void setVulnerabilityDensity(double vulnerabilityDensity) {
+        this.vulnerabilityDensity = vulnerabilityDensity;
+    }
+
+    public int getRedFlags() {
+        return redFlags;
+    }
+
+    public void setRedFlags(int redFlags) {
+        this.redFlags = redFlags;
     }
 
     public int getLoc() {
-         return loc; 
-        }
-    public void setLoc(int loc) { 
+        return loc;
+    }
+
+    public void setLoc(int loc) {
         this.loc = loc;
-     }
+    }
 
     public List<MethodResult> getMethods() {
-         return methods; 
-        }
+        return methods;
+    }
+
     public void setMethods(List<MethodResult> methods) {
-         this.methods = methods;
-         }
+        this.methods = methods;
+    }
 
     public double getTdi() {
         return tdi;
@@ -63,4 +69,13 @@ public class ScanResult {
     public void setRiskClassification(String riskClassification) {
         this.riskClassification = riskClassification;
     }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
 }

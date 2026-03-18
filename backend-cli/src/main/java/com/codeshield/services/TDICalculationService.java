@@ -8,12 +8,13 @@ public class TDICalculationService {
         return complexityScore + vulnerabilityScore;
     }
 
-    public String classifyRisk(double tdi){
-        if (tdi > 50){
+    public String classifyRisk(double tdi) {
+        if (tdi > 50) {
             return "High Risk ==> Extremely Complex / High Risk - Immediate Refactoring Recommended";
-        }
-        else {
-            return "";
+        } else if (tdi > 20) {
+            return "Medium Risk ==> Moderate Complexity - Consider Review";
+        } else {
+            return "Low Risk ==> Code is Healthy";
         }
     }
 }

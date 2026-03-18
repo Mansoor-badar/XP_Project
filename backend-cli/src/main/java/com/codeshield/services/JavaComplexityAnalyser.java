@@ -25,13 +25,13 @@ public final class JavaComplexityAnalyser {
                 continue;
             MethodResult r = analyseCallable(m.getNameAsString(), m.getBody().get());
             methods.add(r);
-            total += r.M();
+            total += r.getM();
         }
 
         for (ConstructorDeclaration c : cu.findAll(ConstructorDeclaration.class)) {
             MethodResult r = analyseCallable(c.getNameAsString(), c.getBody());
             methods.add(r);
-            total += r.M();
+            total += r.getM();
         }
 
         return new FileResult(total, methods);
