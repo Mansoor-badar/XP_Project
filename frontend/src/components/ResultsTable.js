@@ -39,7 +39,7 @@ export default function ResultsTable({ results }) {
             <th>Module</th>
             <th>TDI</th>
             <th>Complexity</th>
-            <th>Vulnerability</th>
+            <th>Vulnerability Density</th>
             <th>Risk</th>
           </tr>
         </thead>
@@ -57,7 +57,7 @@ export default function ResultsTable({ results }) {
                 <td>{r.fileName}</td>
                 <td>{r.tdi}</td>
                 <td>{r.totalComplexity}</td>
-                <td>{r.redFlags}</td>
+                <td>{Number(r.vulnerabilityDensity).toFixed(2)}</td>
                 <td>{r.riskClassification}</td>
               </tr>
             ))

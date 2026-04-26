@@ -10,11 +10,11 @@ public class TDICalculationService {
 
     public String classifyRisk(double tdi) {
         if (tdi > 50) {
-            return "High Risk ==> Extremely Complex / High Risk - Immediate Refactoring Recommended";
+            return "High Risk ==> Significant Technical Debt / Immediate Refactoring Recommended";
         } else if (tdi > 20) {
-            return "Medium Risk ==> Moderate Complexity - Consider Review";
+            return "Medium Risk ==> Noticeable Technical Debt / Review Recommended";
         } else {
-            return "Low Risk ==> Code is Healthy";
+            return "Low Risk ==> Manageable Technical Debt / Code Appears Healthy";
         }
     }
 }
