@@ -55,7 +55,7 @@ export default function ResultsTable({ results }) {
             results.map((r, i) => (
               <tr key={i}>
                 <td>{r.fileName}</td>
-                <td>{r.tdi}</td>
+                <td>{Number(r.tdi).toFixed(2)}</td>
                 <td>{r.totalComplexity}</td>
                 <td>{Number(r.vulnerabilityDensity).toFixed(2)}</td>
                 <td>{r.riskClassification}</td>

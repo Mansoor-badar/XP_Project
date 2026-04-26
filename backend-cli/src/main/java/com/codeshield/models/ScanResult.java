@@ -1,7 +1,6 @@
 package com.codeshield.models;
 
 import java.util.List;
-import com.codeshield.models.MethodResult;
 
 public class ScanResult {
 
