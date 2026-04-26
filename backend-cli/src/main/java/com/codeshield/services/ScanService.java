@@ -1,5 +1,4 @@
 package com.codeshield.services;
-import com.codeshield.services.JavaComplexityAnalyser;
 import com.codeshield.models.ScanResult;
 
 public class ScanService {

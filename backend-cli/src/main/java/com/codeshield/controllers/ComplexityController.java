@@ -3,9 +3,7 @@ package com.codeshield.controllers;
 import com.codeshield.core.Language;
 import com.codeshield.core.LanguageDetector;
 import com.codeshield.models.AnalyseRequest;
-import com.codeshield.models.FileResult;
 import com.codeshield.models.ScanResult;
-import com.codeshield.services.JavaComplexityAnalyser;
 import com.codeshield.services.ScanService;
 
 import org.springframework.web.bind.annotation.*;
